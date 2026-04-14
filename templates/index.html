@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Screen Recorder</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>🎥 Screen Recorder</h1>
+
+    <div class="controls">
+        <button id="startBtn" onclick="startRecording()">Start</button>
+        <button id="stopBtn" onclick="stopRecording()" disabled>Stop</button>
+    </div>
+
+    <p id="status">Status: Idle</p>
+
+    <h2>📂 Recordings</h2>
+
+    <div class="videos">
+        {% for video in videos %}
+            <div class="video-card">
+                <video src="/videos/{{ video }}" controls></video>
+                <a href="/videos/{{ video }}" download>Download</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
